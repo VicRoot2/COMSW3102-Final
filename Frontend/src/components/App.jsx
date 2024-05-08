@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
-import noteItems from "../note.js";
+import noteItems from "./notes.js";
 
 function App() {
   const [notes, setNotes] = useState(noteItems);
