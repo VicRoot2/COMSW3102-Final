@@ -1,0 +1,2 @@
+This is an updated server/client version of the Keeper application.
+Functionalities added are the ability to add and delete notes in a database, such that notes persist over multiple people accessing.
