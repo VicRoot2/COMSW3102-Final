@@ -34,7 +34,7 @@ app.post('/notes', async (req, res) => {
 
 app.delete('/notes/:id', async (req, res) => {
     try {
-        console.log(req.params.id)
+        console.log("id", req.params.id)
         await Note.findOneAndDelete({ _id: req.params.id });
         res.send('Successfully deleted');
     } catch (err) {

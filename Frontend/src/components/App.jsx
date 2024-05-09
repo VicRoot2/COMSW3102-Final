@@ -15,15 +15,16 @@ function App() {
     }).catch(error => {
       console.error('Error fetching notes:', error);
     });
-  }, []);
+  });
 
   const addNote = (newNote) => {
-    Axios.post('/notes', newNote).then(response => {
+    const data = Axios.post('/notes', newNote).then(response => {
       console.log('Response:', response.data);
     }).catch(error => {
       console.error('Error adding a new note:', error);
     });
-    setNotes((prevNotes) => [...prevNotes, newNote]);
+    console.log(notes);
+    setNotes((prevNotes) => [...prevNotes, { ...newNote, _id: data._id }]);
   };
 
   const deleteNote = (id) => {
@@ -45,7 +46,7 @@ function App() {
         return (
           <Note
             key={index}
-            id={index}
+            id={noteItem._id}
             title={noteItem.title}
             content={noteItem.content}
             onDelete={deleteNote}
